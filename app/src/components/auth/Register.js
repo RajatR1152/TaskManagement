@@ -31,7 +31,7 @@ export default function Register() {
         e.preventDefault();
 
         if (user.password.length>4 && user.password == user.confirmPassword) {
-            axios.post('http://localhost:5001/register', user).then((res) => {
+            axios.post('https://task-management-server-zeta-nine.vercel.app/register', user).then((res) => {
                 if (res.data.created) {
                     toast.success(res.data.message);
                     navigate('/login');

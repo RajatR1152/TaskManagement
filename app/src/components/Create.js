@@ -16,7 +16,7 @@ export default function Create() {
     })
 
     useEffect(() => {
-        axios.post('http://localhost:5001/users').then((res) => {
+        axios.post('https://task-management-server-zeta-nine.vercel.app/users').then((res) => {
             setUsers(res.data);
         })
     }, [])
@@ -32,7 +32,7 @@ export default function Create() {
     }
 
     function submit() {
-        axios.post('http://localhost:5001/create', data).then((res) => {
+        axios.post('https://task-management-server-zeta-nine.vercel.app/create', data).then((res) => {
             if (res.data.saved) {
                 toast.success("task created successfully");
             }

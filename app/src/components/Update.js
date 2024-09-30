@@ -12,10 +12,10 @@ export default function Update() {
 
 
     useEffect(() => {
-        axios.post('http://localhost:5001/getpost', { _id: postNo }).then((res) => {
+        axios.post('https://task-management-server-zeta-nine.vercel.app/getpost', { _id: postNo }).then((res) => {
             setData(res.data.data);
         })
-        axios.post('http://localhost:5001/users').then((res) => {
+        axios.post('https://task-management-server-zeta-nine.vercel.app/users').then((res) => {
             setUsers(res.data);
         })
     }, [])
@@ -33,7 +33,7 @@ export default function Update() {
 
         data._id = postNo;
 
-        axios.post('http://localhost:5001/update', data).then((res) => {
+        axios.post('https://task-management-server-zeta-nine.vercel.app/update', data).then((res) => {
             toast.success("data updated successfully");
         })
 

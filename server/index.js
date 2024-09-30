@@ -34,6 +34,10 @@ const authenticateJWT = (req, res, next) => {
     }
 };
 
+app.get('/',(req,res)=>{
+    res.send("ok...");
+})
+
 app.post('/login', (req, res) => {
     try {
         users.findOne({ email: req.body.email }).then(async (data) => {

@@ -13,14 +13,14 @@ export default function Task() {
     const [postData, setPostData] = useState(null);
 
     useEffect(() => {
-        axios.post('http://localhost:5001/getpost', { _id: postNo }).then((res) => {
+        axios.post('https://task-management-server-zeta-nine.vercel.app/getpost', { _id: postNo }).then((res) => {
             setPostData(res.data.data);
         })
     }, [])
 
 
     function deleteTask(id) {
-        axios.post('http://localhost:5001/delete', { _id: id }).then((res) => {
+        axios.post('https://task-management-server-zeta-nine.vercel.app/delete', { _id: id }).then((res) => {
             if (res.data.deleted) {
                 toast.success("task deleted");
                 navigate('/');

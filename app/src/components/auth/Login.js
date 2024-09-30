@@ -24,7 +24,7 @@ export default function Login() {
     }
 
     function submit() {
-        axios.post('http://localhost:5001/login', authData).then((res) => {
+        axios.post('https://task-management-server-zeta-nine.vercel.app/login', authData).then((res) => {
             try {
                 if (res.data.user) {
                     localStorage.setItem('token', res.data.token);
