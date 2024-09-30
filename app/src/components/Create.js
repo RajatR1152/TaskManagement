@@ -16,7 +16,7 @@ export default function Create() {
     })
 
     useEffect(() => {
-        axios.post('http://localhost:5001/users').then((res) => {
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/users`).then((res) => {
             setUsers(res.data);
         })
     }, [])
@@ -32,7 +32,7 @@ export default function Create() {
     }
 
     function submit() {
-        axios.post('http://localhost:5001/create', data).then((res) => {
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/create`, data).then((res) => {
             if (res.data.saved) {
                 toast.success("task created successfully");
             }

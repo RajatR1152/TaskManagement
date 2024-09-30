@@ -31,7 +31,7 @@ export default function Register() {
         e.preventDefault();
 
         if (user.password.length>4 && user.password == user.confirmPassword) {
-            axios.post('http://localhost:5001/register', user).then((res) => {
+            axios.post(`${process.env.REACT_APP_BACKEND_URL}/register`, user).then((res) => {
                 if (res.data.created) {
                     toast.success(res.data.message);
                     navigate('/login');

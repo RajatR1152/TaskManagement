@@ -24,7 +24,7 @@ export default function Login() {
     }
 
     function submit() {
-        axios.post('http://localhost:5001/login', authData).then((res) => {
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/login`, authData).then((res) => {
             try {
                 if (res.data.user) {
                     localStorage.setItem('token', res.data.token);

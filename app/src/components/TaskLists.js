@@ -10,7 +10,7 @@ export default function TaskLists() {
     const [tasks, setTasks] = useState([]);
 
     useEffect(() => {
-        axios.post('http://localhost:5001/gettasks').then((res) => {
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/gettasks`).then((res) => {
             setTasks(res.data);
         })
     }, [deleteTask])
@@ -25,7 +25,7 @@ export default function TaskLists() {
     }
 
     function deleteTask(id){
-        axios.post('http://localhost:5001/delete',{_id:id}).then((res)=>{
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/delete`,{_id:id}).then((res)=>{
             if(res.data.deleted){
                 toast.success("task deleted");
             }

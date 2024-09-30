@@ -16,7 +16,7 @@ export default function HomePage() {
         }
 
         axios
-            .get('http://localhost:5001/protected', {
+            .get(`${process.env.REACT_APP_BACKEND_URL}/protected`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

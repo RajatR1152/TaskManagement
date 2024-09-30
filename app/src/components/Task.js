@@ -13,14 +13,14 @@ export default function Task() {
     const [postData, setPostData] = useState(null);
 
     useEffect(() => {
-        axios.post('http://localhost:5001/getpost', { _id: postNo }).then((res) => {
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/getpost`, { _id: postNo }).then((res) => {
             setPostData(res.data.data);
         })
     }, [])
 
 
     function deleteTask(id) {
-        axios.post('http://localhost:5001/delete', { _id: id }).then((res) => {
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/delete`, { _id: id }).then((res) => {
             if (res.data.deleted) {
                 toast.success("task deleted");
                 navigate('/');
