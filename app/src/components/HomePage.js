@@ -16,7 +16,7 @@ export default function HomePage() {
         }
 
         axios
-            .get('https://task-management-server-zeta-nine.vercel.app/api/protected', {
+            .get('http://localhost:5001/protected', {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -36,7 +36,7 @@ export default function HomePage() {
 
             <Main />
             <TaskLists />
-
+            
         </div>
     );
 }

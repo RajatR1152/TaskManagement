@@ -91,7 +91,7 @@ app.post('/register', async (req, res) => {
     }
 });
 
-app.get('/api/protected', authenticateJWT, (req, res) => {
+app.get('/protected', authenticateJWT, (req, res) => {
     res.json({ message: 'You are authorized!', user: req.user });
 });
 

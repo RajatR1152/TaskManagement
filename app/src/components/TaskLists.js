@@ -10,7 +10,7 @@ export default function TaskLists() {
     const [tasks, setTasks] = useState([]);
 
     useEffect(() => {
-        axios.post('https://task-management-server-zeta-nine.vercel.app/gettasks').then((res) => {
+        axios.post('http://localhost:5001/gettasks').then((res) => {
             setTasks(res.data);
         })
     }, [deleteTask])
@@ -25,7 +25,7 @@ export default function TaskLists() {
     }
 
     function deleteTask(id){
-        axios.post('https://task-management-server-zeta-nine.vercel.app/delete',{_id:id}).then((res)=>{
+        axios.post('http://localhost:5001/delete',{_id:id}).then((res)=>{
             if(res.data.deleted){
                 toast.success("task deleted");
             }
@@ -39,7 +39,7 @@ export default function TaskLists() {
 
         <div className="container overflow-x-auto w-screen">
 
-            <table class="table-auto w-full">
+            <table className="table-auto w-full">
 
                 <thead>
 
