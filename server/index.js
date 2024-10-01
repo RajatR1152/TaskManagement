@@ -2,11 +2,11 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const users = require('./modules/user');
 const tasks = require('./modules/TaskModule');
 const jwt = require('jsonwebtoken');
-const jwtscerete = "secrete124";
+const jwtscerete = "rxtoken32";
 const port = 5001;
 
 app.use(cors());
@@ -34,7 +34,7 @@ const authenticateJWT = (req, res, next) => {
     }
 };
 
-app.get('/',(req,res)=>{
+app.get('/', (req, res) => {
     res.send("ok...");
 })
 
@@ -58,7 +58,6 @@ app.post('/login', (req, res) => {
             }
         });
     } catch (error) {
-        console.log("Invalid email");
         return res.json({ status: 'error', message: 'Login failed', error });
     }
 });
@@ -122,14 +121,12 @@ app.post('/gettasks', async (req, res) => {
         })
     }
     catch {
-        console.log('something went wrong');
     }
 })
 
 app.post('/delete', (req, res) => {
     tasks.deleteOne(req.body).then((d) => {
         res.send({ deleted: true, data: d })
-        console.log(d);
     })
 })
 
@@ -149,7 +146,6 @@ app.post('/update', async (req, res) => {
             res.send({ edited: false, message: 'No document found or no changes made' });
         }
     } catch (error) {
-        console.error('Error during update:', error);
         res.send({ edited: false, message: 'Error updating document' });
     }
 })
